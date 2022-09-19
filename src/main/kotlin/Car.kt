@@ -10,6 +10,6 @@ data class Car(val name: String, var distance: Int = 0) {
     fun moveForward(inputNum: Int) = this.let { if (inputNum >= threshold) it.distance += 1 }
 
     override fun toString(): String {
-        return "{$name} : {$distance}"
+        return "$name : $distance"
     }
 }
