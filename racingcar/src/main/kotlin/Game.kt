@@ -2,14 +2,13 @@ data class Game (val round: Int, val cars: List<Car>) {
     fun runAllRounds() {
         repeat(round) {
             moveCarsOnce()
+            printRoundResults()
         }
     }
 
-    fun printRoundResults() {
-        repeat(round) {
-            cars.forEach { println(it) }
-            println()
-        }
+    private fun printRoundResults() {
+        cars.forEach { println(it) }
+        println()
     }
 
     private fun moveCarsOnce() = cars.forEach { it.moveForward(randNum(1, 10)) }

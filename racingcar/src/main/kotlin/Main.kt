@@ -12,5 +12,4 @@ fun main(args: Array<String>) {
 
     // 3. run
     game.runAllRounds()
-    game.printRoundResults()
 }
