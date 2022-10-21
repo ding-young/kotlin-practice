@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
     val game = Game(round, cars)
 
     game.runAllRounds()
+    View.printWinners(game.getWinnersNames())
 }
 
 fun initCars() : List<Car> {

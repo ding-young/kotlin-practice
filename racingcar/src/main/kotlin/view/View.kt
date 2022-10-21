@@ -1,6 +1,7 @@
 package view
 
 import model.Car
+import java.text.ParseException
 
 object View {
     fun readInputCarNames() : List<String> {
@@ -10,16 +11,24 @@ object View {
 
     fun readInputRound() : Int {
         println("경기 라운드 수를 입력하세요")
-        return readln().toInt()
+        val round = try { readln().toInt()
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("숫자를 입력해주세요.")
+        }
+        require(round > 0) {"라운드 수는 양수만 가능합니다."}
+        return round
     }
 
-    fun printCarStatus(car: Car): String {
-        return "$car.name : $car.distance"
+    private fun printCarStatus(car: Car) {
+        println("${car.name} : ${car.distance}")
     }
 
     fun printRoundResult(cars: List<Car>) {
         cars.forEach { printCarStatus(it) }
         println()
+    }
 
+    fun printWinners(names: List<String>) {
+        println("Winners: ${names.joinToString(",")}")
     }
 }
