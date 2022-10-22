@@ -1,0 +1,1 @@
+fun main(args: Array<String>) = MiniGrep().main(args)
